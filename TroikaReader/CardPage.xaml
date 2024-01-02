@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="TroikaReader.CardPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TroikaReader"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Панель заголовка-->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="3911 011 302" x:Name="troikaIdLabel" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="тройка" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+
+        <!--TODO: Содержимое должно размещаться в следующей сетке-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            
+            <Image Grid.Row="0" Source="Assets/troika_card.png" Height="100pt" HorizontalAlignment="Left"/>
+            <TextBlock Grid.Row="1" x:Name="balanceLabel" Text="на карте 100 ₽" FontSize="36"/>
+            <TextBlock Grid.Row="2" x:Name="lastRideLabel" Text="последняя поездка: 01.01.2024 17:50" TextWrapping="WrapWholeWords" FontSize="24"/>
+            <TextBlock Grid.Row="3" x:Name="stationSwitchLabel" Text="действует пересадка на мцд/бкл до: 19:20" TextWrapping="WrapWholeWords" FontSize="24" Foreground="LightGreen"/>
+        </Grid>
+    </Grid>
+</Page>
